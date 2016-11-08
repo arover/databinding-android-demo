@@ -1,5 +1,6 @@
 package com.example.databindingdemo;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,50 +15,53 @@ import com.example.databindingdemo.model.Movie;
 import com.example.databindingdemo.model.MovieStore;
 import com.example.databindingdemo.utils.ModifyInBackgroundTask;
 
-import static android.R.attr.id;
-
 public class MainActivity extends AppCompatActivity {
 
-   private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
-   @Override
-   public boolean onCreateOptionsMenu(Menu menu) {
-      // Inflate the menu; this adds items to the action bar if it is present.
-      getMenuInflater().inflate(R.menu.menu_main, menu);
-      return true;
-   }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-   @Override
-   public boolean onOptionsItemSelected(MenuItem item) {
-      int id = item.getItemId();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
-      //noinspection SimplifiableIfStatement
-      if (id == R.id.action_modify) {
-         new ModifyInBackgroundTask().execute(MovieStore.getAllMovies().toArray(new Movie[0]));
-         return true;
-      }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_modify) {
+            new ModifyInBackgroundTask().execute(MovieStore.getAllMovies().toArray(new Movie[0]));
+            return true;
+        }
 
-      return super.onOptionsItemSelected(item);
-   }
+        if (id == R.id.action_helloworld) {
+            startActivity(new Intent(this, HelloWorldActivity.class));
+            return true;
+        }
 
-   @Override
-   protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-      initRecyclerView();
-   }
+        return super.onOptionsItemSelected(item);
+    }
 
-   private void initRecyclerView() {
-      final RecyclerView list = binding.list;
-      list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-      final ListAdapter adapter = new ListAdapter(MovieStore.getAllMovies());
-      adapter.setOnItemClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-            Movie movie = (Movie) view.getTag();
-            startActivity(DetailActivity.buildIntent(getApplicationContext(), movie));
-         }
-      });
-      list.setAdapter(adapter);
-   }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        final RecyclerView list = binding.list;
+        list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        final ListAdapter adapter = new ListAdapter(this,MovieStore.getAllMovies());
+        adapter.setOnItemClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Movie movie = (Movie) view.getTag();
+                startActivity(DetailActivity.buildIntent(getApplicationContext(), movie));
+            }
+        });
+        list.setAdapter(adapter);
+    }
 }

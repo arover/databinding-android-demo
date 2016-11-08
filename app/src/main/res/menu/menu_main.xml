@@ -3,4 +3,7 @@
    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
    <item android:id="@+id/action_modify" android:title="@string/action_modify"
       android:orderInCategory="100" app:showAsAction="never" />
+
+   <item android:id="@+id/action_helloworld" android:title="@string/helloworld"
+         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

@@ -1,6 +1,7 @@
 <resources>
-   <string name="app_name">DataBindingDemo</string>
+    <string name="app_name">DataBindingDemo</string>
 
-   <string name="action_modify">Modify In Background</string>
-   <string name="save">Save</string>
+    <string name="action_modify">Modify In Background</string>
+    <string name="save">Save</string>
+    <string name="helloworld">Hello World</string>
 </resources>
