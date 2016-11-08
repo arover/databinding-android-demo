@@ -1,4 +1,4 @@
-package com.kupferwerk.androiddatabinding;
+package com.example.databindingdemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.kupferwerk.androiddatabinding;
+package com.example.databindingdemo;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,10 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.kupferwerk.androiddatabinding.databinding.ActivityMainBinding;
-import com.kupferwerk.androiddatabinding.model.Movie;
-import com.kupferwerk.androiddatabinding.model.MovieStore;
-import com.kupferwerk.androiddatabinding.utils.ModifyInBackgroundTask;
+import com.example.databindingdemo.databinding.ActivityMainBinding;
+import com.example.databindingdemo.model.Movie;
+import com.example.databindingdemo.model.MovieStore;
+import com.example.databindingdemo.utils.ModifyInBackgroundTask;
 
 public class MainActivity extends AppCompatActivity {
 

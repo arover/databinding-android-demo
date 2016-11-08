@@ -1,9 +1,9 @@
-package com.kupferwerk.androiddatabinding.model;
+package com.example.databindingdemo.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.kupferwerk.androiddatabinding.BR;
+import com.example.databindingdemo.BR;
 
 import java.util.Date;
 

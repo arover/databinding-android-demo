@@ -4,11 +4,11 @@
 
    <data>
 
-      <import type="com.kupferwerk.androiddatabinding.utils.DateUtils" />
+      <import type="com.example.databindingdemo.utils.DateUtils" />
 
       <variable
          name="movie"
-         type="com.kupferwerk.androiddatabinding.model.Movie" />
+         type="com.example.databindingdemo.model.Movie" />
    </data>
 
    <ScrollView

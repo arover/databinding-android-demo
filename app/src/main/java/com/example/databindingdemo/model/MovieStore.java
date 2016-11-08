@@ -1,4 +1,4 @@
-package com.kupferwerk.androiddatabinding.model;
+package com.example.databindingdemo.model;
 
 import java.util.ArrayList;
 import java.util.Date;

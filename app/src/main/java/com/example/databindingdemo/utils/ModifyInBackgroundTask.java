@@ -1,8 +1,8 @@
-package com.kupferwerk.androiddatabinding.utils;
+package com.example.databindingdemo.utils;
 
 import android.os.AsyncTask;
 
-import com.kupferwerk.androiddatabinding.model.Movie;
+import com.example.databindingdemo.model.Movie;
 
 public class ModifyInBackgroundTask extends AsyncTask<Movie, Void, Void> {
    @Override

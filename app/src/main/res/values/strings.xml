@@ -1,5 +1,5 @@
 <resources>
-   <string name="app_name">AndroidDatabinding</string>
+   <string name="app_name">DataBindingDemo</string>
 
    <string name="action_modify">Modify In Background</string>
    <string name="save">Save</string>

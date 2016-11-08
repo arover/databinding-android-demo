@@ -1,4 +1,4 @@
-package com.kupferwerk.androiddatabinding;
+package com.example.databindingdemo;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.kupferwerk.androiddatabinding.databinding.ActivityDetailBinding;
-import com.kupferwerk.androiddatabinding.model.Movie;
-import com.kupferwerk.androiddatabinding.model.MovieStore;
-import com.kupferwerk.androiddatabinding.utils.DateUtils;
+import com.example.databindingdemo.databinding.ActivityDetailBinding;
+import com.example.databindingdemo.model.Movie;
+import com.example.databindingdemo.model.MovieStore;
+import com.example.databindingdemo.utils.DateUtils;
 
 public class DetailActivity extends AppCompatActivity {
 

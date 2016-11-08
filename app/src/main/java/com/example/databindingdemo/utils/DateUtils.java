@@ -1,4 +1,4 @@
-package com.kupferwerk.androiddatabinding.utils;
+package com.example.databindingdemo.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
