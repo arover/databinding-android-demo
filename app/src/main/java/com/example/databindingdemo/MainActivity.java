@@ -7,11 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.databindingdemo.databinding.ActivityMainBinding;
 import com.example.databindingdemo.model.Movie;
 import com.example.databindingdemo.model.MovieStore;
 import com.example.databindingdemo.utils.ModifyInBackgroundTask;
+
+import static android.R.attr.id;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
       final RecyclerView list = binding.list;
       list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
       final ListAdapter adapter = new ListAdapter(MovieStore.getAllMovies());
-      adapter.setOnItemClickListener(new ListAdapter.OnItemClickListener() {
+      adapter.setOnItemClickListener(new View.OnClickListener() {
          @Override
-         public void onItemClick(int id, Movie movie) {
-            startActivity(DetailActivity.buildIntent(getApplicationContext(), id));
+         public void onClick(View view) {
+            Movie movie = (Movie) view.getTag();
+            startActivity(DetailActivity.buildIntent(getApplicationContext(), movie));
          }
       });
       list.setAdapter(adapter);

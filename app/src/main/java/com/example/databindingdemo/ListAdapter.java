@@ -13,10 +13,6 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-   public interface OnItemClickListener {
-      void onItemClick(final int id, final Movie movie);
-   }
-
    public static class ViewHolder extends RecyclerView.ViewHolder {
       private final ListItemBinding binding;
 
@@ -28,7 +24,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
    private final List<Movie> movies;
    private LayoutInflater layoutInflater;
-   private OnItemClickListener onItemClickListener;
+   private View.OnClickListener onItemClickListener;
 
    public ListAdapter(List<Movie> movies) {
       this.movies = movies;
@@ -40,16 +36,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
    }
 
    @Override
-   public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-      viewHolder.binding.setMovie(movies.get(i));
-      viewHolder.binding.setClicklistener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-            if (onItemClickListener != null) {
-               onItemClickListener.onItemClick(i, movies.get(i));
-            }
-         }
-      });
+   public void onBindViewHolder(ViewHolder viewHolder, int position) {
+      Movie movie = movies.get(position);
+      viewHolder.binding.setMovie(movie);
+      viewHolder.binding.getRoot().setTag(movie);
+      viewHolder.binding.setClicklistener(onItemClickListener);
    }
 
    @Override
@@ -62,7 +53,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
       return new ViewHolder(binding);
    }
 
-   public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+   public void setOnItemClickListener(View.OnClickListener onItemClickListener) {
       this.onItemClickListener = onItemClickListener;
    }
 }

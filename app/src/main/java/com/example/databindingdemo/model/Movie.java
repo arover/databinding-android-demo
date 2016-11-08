@@ -13,9 +13,10 @@ public class Movie extends BaseObservable {
    private String imageUrl;
    private Date publicationDate;
    private String title;
+   private int id;
 
-   public Movie() {
-
+   public Movie(int id) {
+      this.id = id;
    }
 
    @Bindable
@@ -60,5 +61,9 @@ public class Movie extends BaseObservable {
       this.title = title;
       notifyPropertyChanged(BR.title);
       return this;
+   }
+
+   public int getId() {
+      return id;
    }
 }

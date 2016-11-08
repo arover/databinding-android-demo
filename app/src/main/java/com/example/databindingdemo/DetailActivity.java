@@ -17,9 +17,9 @@ public class DetailActivity extends AppCompatActivity {
    private static final String EXTRA_MOVIE_ID = "EXTRA_MOVIE_ID";
    private ActivityDetailBinding binding;
 
-   public static Intent buildIntent(final Context context, final int movieId) {
+   public static Intent buildIntent(final Context context, Movie movie) {
       Intent intent = new Intent(context, DetailActivity.class);
-      intent.putExtra(EXTRA_MOVIE_ID, movieId);
+      intent.putExtra(EXTRA_MOVIE_ID, movie.getId());
       return intent;
    }
 
